@@ -27,14 +27,14 @@ def login():
 # login()
 
 # !This fucntion will create new posts
-# !Tried everything I could to make this work... but it's not working... :()
+# !made a procedure and used it
 def create_post():
     client_id = int(input("Please ID : "))
     content = input("Content : ")
     title = input("Title: ")
-    insert ="INSERT INTO post VALUES (?,?,?)"
-    cursor.execute(insert,[client_id, content, title])
+    cursor.execute("CALL new_post(?,?,?)",[client_id, content, title])
     conn.commit()
+    print("Post added!")
 
 # !function to view posts
 def view_post():
@@ -64,7 +64,4 @@ def blog():
         if user_input == 3:
             print("Bye!")
             break
-        else:
-            print("Invalid input!")
-    
 blog()
