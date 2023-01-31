@@ -33,7 +33,6 @@ def create_post():
     content = input("Content : ")
     title = input("Title: ")
     insert ="INSERT INTO post VALUES (?,?,?)"
-    # values = (client_id,content,title)
     cursor.execute(insert,[client_id, content, title])
     conn.commit()
 
